@@ -1,4 +1,5 @@
 ﻿using Controllers;
+using cs_oppgave_04.Helpers;
 using Repository;
 using Services;
 
@@ -14,6 +15,15 @@ class Program
         
         //controller.ShowAll();
         
-        Menu.Originator();
+        while (!Globals.exitProgram)
+        {
+
+            Globals.originatorMenuExitRequest = false;
+            Menu.Originator();
+            // Other menu
+            // Other menu
+        }
+        
+        
     }
 }

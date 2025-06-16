@@ -6,7 +6,7 @@ public class Menu
 {
     public static void Originator()
     {
-        while (!Globals.exitSelected)
+        while (!Globals.originatorMenuExitRequest)
         {
             Console.Clear();
             Console.WriteLine("Select originator of camera:");
@@ -46,8 +46,10 @@ public class Menu
                 switch (Globals.originators[Globals.selectedIndex])
                 {
                     case "Agfa": 
+                        Console.WriteLine("\n");
                         Console.WriteLine("Agfa");
-                        Globals.exitSelected = true;
+                        Console.ReadKey(true);
+                        Globals.originatorMenuExitRequest = true;
                         break;
                     case "Cannon": 
                         Console.WriteLine("Cannon");
@@ -89,11 +91,10 @@ public class Menu
                 }
             }
             
-            
-            // 
+           
+            // BTN - Q
             else if (key.Key == ConsoleKey.Q)
             {
-                //exitSelected = true;
                 break;
             } 
         }
