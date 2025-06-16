@@ -12,7 +12,8 @@ class Program
         var service = new ProductService(repository);
         var controller = new ProductController(service);
         
-        controller.ShowAll();
+        //controller.ShowAll();
         
+        Menu.Originator();
     }
 }
