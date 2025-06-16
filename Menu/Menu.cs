@@ -4,7 +4,7 @@ namespace cs_oppgave_04;
 
 public class Menu
 {
-    public static void Originator()
+    public static string Originator()
     {
         while (!Globals.originatorMenuExitRequest)
         {
@@ -45,58 +45,29 @@ public class Menu
             {
                 switch (Globals.originators[Globals.selectedIndex])
                 {
-                    case "Agfa": 
-                        Console.WriteLine("\n");
-                        Console.WriteLine("Agfa");
-                        Console.ReadKey(true);
-                        Globals.originatorMenuExitRequest = true;
-                        break;
-                    case "Cannon": 
-                        Console.WriteLine("Cannon");
-                        break;
-                    case "Casio": 
-                        Console.WriteLine("Casio");
-                        break;
-                    case "Contax": 
-                        Console.WriteLine("Contax");
-                        break;
-                    case "Epson": 
-                        Console.WriteLine("Epson");
-                        break;
-                    case "Fujifilm": 
-                        Console.WriteLine("Fujifilm");
-                        break;
-                    case "HP": 
-                        Console.WriteLine("HP");
-                        break;
-                    case "JVC": 
-                        Console.WriteLine("JVC");
-                        break;
-                    case "Kodak": 
-                        Console.WriteLine("Kodak"); 
-                        break;
-                    case "Kyocera": 
-                        Console.WriteLine("Kyocera");
-                        break;
-                    case "Leica": 
-                        Console.WriteLine("Leica");
-                        break;
-                    case "Nikon": 
-                        Console.WriteLine("Nikon");
-                        break;
-                    case "Olympus": 
-                        Console.WriteLine("Olympus");
-                        break;
-                    
+                    case "Agfa": return "Agfa";
+                    case "Cannon": return "Cannon";
+                    case "Casio": return "Casio";
+                    case "Contax": return "Contax";
+                    case "Epson": return "Epson";
+                    case "Fujifilm": return "Fujifilm";
+                    case "HP": return "HP";
+                    case "JVC": return "JVC";
+                    case "Kodak": return "Kodak";
+                    case "Kyocera": return "Kyocera";
+                    case "Leica": return "Leica";
+                    case "Nikon": return "Nikon";
+                    case "Olympus": return "Olympus";
                 }
             }
             
-           
             // BTN - Q
             else if (key.Key == ConsoleKey.Q)
             {
                 break;
             } 
         }
+
+        return null;
     }
 }

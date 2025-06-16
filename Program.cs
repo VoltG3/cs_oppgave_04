@@ -18,8 +18,14 @@ class Program
         while (!Globals.exitProgram)
         {
 
+           // Globals.originatorMenuExitRequest = false;
+            var str = Menu.Originator();
+            
+            Console.WriteLine("\n");
+            Console.WriteLine(str);
+            Console.WriteLine("Press any key to continue..."); Console.ReadKey(true);
             Globals.originatorMenuExitRequest = false;
-            Menu.Originator();
+           
             // Other menu
             // Other menu
         }
