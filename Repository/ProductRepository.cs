@@ -1,4 +1,5 @@
 using Models;
+using Helper;
 
 namespace Repository;
 
@@ -15,13 +16,24 @@ public class ProductRepository
             foreach (var line in lines)
             {
                 var parts = line.Split(',');
-                if (parts.Length >= 3)
+                if (parts.Length >= 13)
                 {
                     products.Add(new ProductModel
                     {
                         Id = products.Count + 1, // Generate ID
-                        Name = parts[0],
-                        Price = decimal.TryParse(parts[12], out var price) ? price : decimal.Parse(parts[13])
+                        Model = parts[0],
+                        ReleaseYear = Helper.Convert.ParseInt(parts[1]),
+                        MaxResolution = Helper.Convert.ParseFloat(parts[2]),
+                        LowResolution = Helper.Convert.ParseFloat(parts[3]),
+                        EffectivePixels = Helper.Convert.ParseFloat(parts[4]),
+                        ZoomWide = Helper.Convert.ParseFloat(parts[5]),
+                        ZoomTele = Helper.Convert.ParseFloat(parts[6]),
+                        NormalFocusRange = Helper.Convert.ParseFloat(parts[7]),
+                        MacroFocusRange = Helper.Convert.ParseFloat(parts[8]),
+                        StorageIncluded = Helper.Convert.ParseFloat(parts[9]),
+                        Weight = Helper.Convert.ParseFloat(parts[10]),
+                        Dimensions = Helper.Convert.ParseFloat(parts[11]),
+                        Price = Helper.Convert.ParseDecimal(parts[12])
                     });
                 }
             }

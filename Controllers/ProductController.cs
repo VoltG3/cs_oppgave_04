@@ -24,7 +24,21 @@ public class ProductController
         
         foreach (var item in products)
         {
-            Console.WriteLine($"{item.Id}: {item.Name} - {item.Price}");
+            Console.WriteLine($"" +
+                              $"{ item.Id }: " +
+                              $"{ item.Model }: " +
+                              $"{ item.ReleaseYear }: " +
+                              $"{ item.MaxResolution }: " +
+                              $"{ item.LowResolution }: " +
+                              $"{ item.EffectivePixels }: " +
+                              $"{ item.ZoomWide }: " +
+                              $"{ item.ZoomTele }: " +
+                              $"{ item.NormalFocusRange }: " +
+                              $"{ item.MacroFocusRange }: " +
+                              $"{ item.StorageIncluded }: " +
+                              $"{ item.Weight }: " +
+                              $"{ item.Dimensions }: " +
+                              $"{ item.Price }: ");
         }
     }
 }
