@@ -23,4 +23,22 @@ public class Filters
             .ToList();
     }
     
+    //
+    public List<ProductModel> GetProductByPriceAscending(List<ProductModel> products, string originator, string year)
+    {
+        return products
+            .Where(p => p.Model.StartsWith(originator + " "))
+            .Where(p => p.ReleaseYear.ToString() == year)
+            .OrderBy(p => p.Price)
+            .ToList();
+    }
+
+    public List<ProductModel> GetProductByPriceDescending(List<ProductModel> products, string originator, string year)
+    {
+        return products
+            .Where(p => p.Model.StartsWith(originator + " "))
+            .Where(p => p.ReleaseYear.ToString() == year)
+            .OrderByDescending(p => p.Price)
+            .ToList();
+    }
 }

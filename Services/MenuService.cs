@@ -14,6 +14,12 @@ public static class MenuService
                 var targetIndex = Globals.selectedOriginatorIndex;
                 ShowFakeMenu(Globals.uniqueOriginators, targetIndex);
             }
+
+            if (Globals.yearActive)
+            {
+                var targetIndex = Globals.selectedYearIndex;
+                ShowFakeMenu(Globals.uniqueYears, targetIndex);
+            }
             
             Console.WriteLine();
 

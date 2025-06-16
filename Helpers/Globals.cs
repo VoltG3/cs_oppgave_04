@@ -9,12 +9,14 @@ public static class Globals
     //
     public static int selectedOriginatorIndex = 0;
     public static int selectedYearIndex = 0;
+    public static int selectedPriceIndex = 0;
     //
     public static bool originatorActive = false;
     public static bool yearActive = false;
     //
     public static string[]? uniqueOriginators = [];
     public static string[]? uniqueYears = [];
+    public static string[]? uniquePrice = ["Unsorted", "Low to High", "High to Low"];
 
     public static void SetUniqueOriginators(List<ProductModel> filteredList)
     {
@@ -36,4 +38,6 @@ public static class Globals
             .Prepend("All")
             .ToArray();
     }
+    
+    
 }

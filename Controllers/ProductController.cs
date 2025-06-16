@@ -30,4 +30,20 @@ public class ProductController
         var filteredProducts = filters.GetProductByYear(products, targetOriginator, targetYear);
         return filteredProducts;
     }
+
+    public List<ProductModel> GetByPriceAscending(string targetOriginator, string targetYear)
+    {
+        var products = _service.GetAllProducts();
+        var filters = new Filters();
+        var filteredProducts = filters.GetProductByPriceAscending(products, targetOriginator, targetYear);
+        return filteredProducts;
+    }
+
+    public List<ProductModel> GetByPriceDecending(string targetOriginator, string targetYear)
+    {
+        var products = _service.GetAllProducts();
+        var filters = new Filters();
+        var filteredProducts = filters.GetProductByPriceDescending(products, targetOriginator, targetYear);
+        return filteredProducts;
+    }
 }

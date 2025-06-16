@@ -47,6 +47,23 @@ class Program
                 var filteredProducts = controller.GetByYear(selectedOriginator, selectedUniqueYear);
             Globals.yearActive = true;
             
+            // ---------------
+            //  Chapter Price
+            // ---------------
+
+            var selectedPrice = MenuService.ShowSelectionMenu(
+                Globals.uniquePrice, 
+                ref Globals.selectedPriceIndex);;
+            
+                Console.WriteLine("\n");
+                switch (selectedPrice)
+                {
+                    case "Low to High": filteredProducts = controller.GetByPriceAscending(selectedOriginator, selectedUniqueYear); break;
+                    case "High to Low": filteredProducts = controller.GetByPriceDecending(selectedOriginator, selectedUniqueYear); break;
+                    default: filteredProducts = filteredProducts; break;
+                }
+                
+            
             // -------------
             //  Print Table
             // -------------
