@@ -14,17 +14,5 @@ class Program
         
         controller.ShowAll();
         
-        /*
-        string path = "Data/camera_dataset.csv";
-        var list = FileReader.ReadFile(path);
-
-        if (list != null)
-        {
-            foreach (var item in list)
-            {
-                Console.WriteLine(item);
-            }
-        }
-        */
     }
 }
