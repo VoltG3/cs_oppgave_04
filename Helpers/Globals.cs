@@ -5,8 +5,13 @@ namespace cs_oppgave_04.Helpers;
 public static class Globals
 {
     public static bool exitProgram = false;
-    public static int selectedIndex = 0; 
     public static bool originatorMenuExitRequest = false;
+    //
+    public static int selectedOriginatorIndex = 0;
+    public static int selectedYearIndex = 0;
+    //
+    public static bool originatorActive = false;
+    public static bool yearActive = false;
     //
     public static string[]? uniqueOriginators = [];
     public static string[]? uniqueYears = [];

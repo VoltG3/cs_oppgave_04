@@ -14,22 +14,42 @@ class Program
         var service = new ProductService(repository);
         var controller = new ProductController(service);
         
+        var allProducts = controller.GetAllProducts();
+        Globals.SetUniqueOriginators(allProducts);
+        
         while (!Globals.exitProgram)
         {
+            Globals.originatorActive = false;
             
-            var allProducts = controller.GetAllProducts();
-            Globals.SetUniqueOriginators(allProducts);
-            var selectedOriginator = Menu.Originator();
-            Console.WriteLine("\n");
-            var filteredList = controller.GetByOriginator(selectedOriginator);
+            // --------------------
+            //  Chapter Originator
+            // --------------------
+
+            var selectedOriginator = MenuService.ShowSelectionMenu(
+                Globals.uniqueOriginators, 
+                "Select a camera manufacturer:", 
+                ref Globals.selectedOriginatorIndex);
+                
+                Console.WriteLine("\n");
+                var filteredList = controller.GetByOriginator(selectedOriginator);
+            Globals.originatorActive = true;
+            
+            // --------------
+            //  Chapter Year
+            // --------------
             
             Globals.SetUniqueYears(filteredList);
-            var selectedUniqueYear = Menu.SelectYear();
+            
+            var selectedUniqueYear = MenuService.ShowSelectionMenu(Globals.uniqueYears, "Select production year:", ref Globals.selectedYearIndex);
+            
             Console.WriteLine("\n");
             var filteredProducts = controller.GetByYear(selectedOriginator, selectedUniqueYear);
+            Globals.yearActive = true;
             
+            // Table
             Print.ProductTable(filteredProducts);
             
+            // Repeat
             Console.WriteLine("\n");
             Console.WriteLine("Press any key to continue..."); Console.ReadKey(true);
             Globals.originatorMenuExitRequest = false;
