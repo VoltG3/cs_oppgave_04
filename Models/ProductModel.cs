@@ -16,4 +16,22 @@ public class ProductModel
     public float Weight { get; set; }
     public float Dimensions { get; set; }
     public decimal Price { get; set; }
+
+    public override string ToString()
+    {
+        return $"" +
+               $"{ Model }," +
+               $"{ ReleaseYear }," +
+               $"{ MaxResolution }," +
+               $"{ LowResolution }," +
+               $"{ EffectivePixels }," +
+               $"{ ZoomWide }," +
+               $"{ ZoomTele }," +
+               $"{ NormalFocusRange }," +
+               $"{ MacroFocusRange }," +
+               $"{ StorageIncluded }," +
+               $"{ Weight }," +
+               $"{ Dimensions }," +
+               $"{ Price }";
+    }
 }

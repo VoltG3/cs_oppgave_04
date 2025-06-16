@@ -1,5 +1,5 @@
-﻿using Controllers;
-using cs_oppgave_04.Helpers;
+﻿using cs_oppgave_04.Helpers;
+using Controllers;
 using Repository;
 using Services;
 
@@ -13,16 +13,13 @@ class Program
         var service = new ProductService(repository);
         var controller = new ProductController(service);
         
-        //controller.ShowAll();
-        
         while (!Globals.exitProgram)
         {
-
-           // Globals.originatorMenuExitRequest = false;
-            var str = Menu.Originator();
             
+            var targetOriginator = Menu.Originator();
             Console.WriteLine("\n");
-            Console.WriteLine(str);
+            controller.ShowByOriginator(targetOriginator);
+            
             Console.WriteLine("Press any key to continue..."); Console.ReadKey(true);
             Globals.originatorMenuExitRequest = false;
            

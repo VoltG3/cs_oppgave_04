@@ -58,6 +58,16 @@ public class Menu
                     case "Leica": return "Leica";
                     case "Nikon": return "Nikon";
                     case "Olympus": return "Olympus";
+                    case "Panasonic": return "Panasonic";
+                    case "Pentax": return "Pentax";
+                    case "Ricoh": return "Ricoh";
+                    case "Samsung": return "Samsung";
+                    case "Sanyo": return "Sanyo";
+                    case "Sigma": return "Sigma";
+                    case "Sony": return "Sony";
+                    case "Toshiba": return "Toshiba";   
+                    case "All": return "All";
+                    default: return "";
                 }
             }
             

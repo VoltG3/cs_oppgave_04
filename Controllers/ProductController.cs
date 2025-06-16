@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations.Schema;
+using cs_oppgave_04;
 using Services;
 using Spectre.Console;
 
@@ -6,21 +6,22 @@ namespace Controllers;
 
 public class ProductController
 {
-    private readonly ProductService service;
+    private readonly ProductService _service;
     
     public ProductController(ProductService service)
     {
-        this.service = service;
+        this._service = service;
     }
 
-    public void ShowAll()
+    public void ShowByOriginator(string targetOriginator)
     {
-        var products = service.GetAllProducts();
-        Console.WriteLine($"List of products:");
+        var products = _service.GetAllProducts();
+        var filters = new Filters();
+        var filteredProducts = filters.GetProductByOriginator(products, targetOriginator);
 
-        if (!products.Any())
+        if (!filteredProducts.Any())
         {
-            Console.WriteLine($"No products found.");
+            Console.WriteLine($"No products found for originator: { targetOriginator }");
             return;       
         }
         
@@ -40,7 +41,7 @@ public class ProductController
         table.AddColumn("Dimensions");
         table.AddColumn("Price");
         
-        foreach (var item in products)
+        foreach (var item in filteredProducts)
         {
             table.AddRow( 
                 item.Id.ToString(), 
@@ -58,24 +59,6 @@ public class ProductController
                 item.Dimensions.ToString(),
                 item.Price.ToString()
                 );
-
-            /*
-            Console.WriteLine($"" +
-                              $"{ item.Id }: " +
-                              $"{ item.Model }: " +
-                              $"{ item.ReleaseYear }: " +
-                              $"{ item.MaxResolution }: " +
-                              $"{ item.LowResolution }: " +
-                              $"{ item.EffectivePixels }: " +
-                              $"{ item.ZoomWide }: " +
-                              $"{ item.ZoomTele }: " +
-                              $"{ item.NormalFocusRange }: " +
-                              $"{ item.MacroFocusRange }: " +
-                              $"{ item.StorageIncluded }: " +
-                              $"{ item.Weight }: " +
-                              $"{ item.Dimensions }: " +
-                              $"{ item.Price }: ");
-          */
         }
         
         AnsiConsole.Write(table);
