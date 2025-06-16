@@ -17,31 +17,22 @@ class Program
         while (!Globals.exitProgram)
         {
             
-            var targetOriginator = Menu.Originator();
+            var allProducts = controller.GetAllProducts();
+            Globals.SetUniqueOriginators(allProducts);
+            var selectedOriginator = Menu.Originator();
             Console.WriteLine("\n");
-            var filtered = controller.GetByOriginator(targetOriginator);
-            Print.ProductTable(filtered);
+            var filteredList = controller.GetByOriginator(selectedOriginator);
             
+            Globals.SetUniqueYears(filteredList);
+            var selectedUniqueYear = Menu.SelectYear();
+            Console.WriteLine("\n");
+            var filteredProducts = controller.GetByYear(selectedOriginator, selectedUniqueYear);
             
-            var uniqueYears = filtered
-                .Select(p => p.ReleaseYear)
-                .Distinct()
-                .OrderBy(y => y)
-                .ToList();
+            Print.ProductTable(filteredProducts);
             
             Console.WriteLine("\n");
-            foreach (var year in uniqueYears)
-            {
-                Console.WriteLine($"Year: {year}");
-            }
-            
             Console.WriteLine("Press any key to continue..."); Console.ReadKey(true);
             Globals.originatorMenuExitRequest = false;
-           
-            // Other menu
-            // Other menu
         }
-        
-        
     }
 }

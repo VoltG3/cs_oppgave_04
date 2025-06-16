@@ -13,11 +13,21 @@ public class ProductController
         _service = service;
     }
 
+    public List<ProductModel> GetAllProducts() => _service.GetAllProducts();
+    
     public List<ProductModel> GetByOriginator(string targetOriginator)
     {
         var products = _service.GetAllProducts();
         var filters = new Filters();
         var filteredProducts = filters.GetProductByOriginator(products, targetOriginator);
+        return filteredProducts;
+    }
+    
+    public List<ProductModel> GetByYear(string targetOriginator, string targetYear)
+    {
+        var products = _service.GetAllProducts();
+        var filters = new Filters();
+        var filteredProducts = filters.GetProductByYear(products, targetOriginator, targetYear);
         return filteredProducts;
     }
 }
