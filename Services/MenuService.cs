@@ -4,7 +4,7 @@ namespace cs_oppgave_04;
 
 public static class MenuService
 {
-    public static string ShowSelectionMenu(string[] options, string title, ref int selectedIndex)
+    public static string ShowSelectionMenu(string[] options, ref int selectedIndex)
     {
         while (!Globals.originatorMenuExitRequest)
         {
@@ -12,10 +12,9 @@ public static class MenuService
             if (Globals.originatorActive)
             {
                 var targetIndex = Globals.selectedOriginatorIndex;
-                ShowFakeMenu(Globals.uniqueOriginators, "t", targetIndex);
+                ShowFakeMenu(Globals.uniqueOriginators, targetIndex);
             }
             
-            //Console.WriteLine(title);
             Console.WriteLine();
 
             for (int i = 0; i < options.Length; i++)
@@ -24,12 +23,12 @@ public static class MenuService
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    Console.Write($"{(char)160}{options[i]}{(char)160}");
+                    Console.Write($"{ (char)160 }{ options[i] }{ (char)160 }");
                     Console.ResetColor();
                 }
                 else
                 {
-                    Console.Write($"{(char)160}{options[i]}{(char)160}");
+                    Console.Write($"{ (char)160 }{ options[i] }{ (char)160 }");
                 }
             }
 
@@ -56,24 +55,22 @@ public static class MenuService
         return null;
     }
     
-    public static void ShowFakeMenu(string[] foptions, string title, int fselectedIndex)
+    public static void ShowFakeMenu(string[] optionsState, int selectedIndexState)
     {
-       
-        //Console.WriteLine(title); 
         Console.WriteLine();
 
-        for (int i = 0; i < foptions.Length; i++)
+        for (int i = 0; i < optionsState.Length; i++)
         { 
-            if (i == fselectedIndex)
+            if (i == selectedIndexState)
             { 
                 Console.ForegroundColor = ConsoleColor.Yellow; 
                 Console.BackgroundColor = ConsoleColor.DarkBlue; 
-                Console.Write($"{(char)160}{foptions[i]}{(char)160}"); 
+                Console.Write($"{ (char)160 }{ optionsState[i] }{ (char)160 }"); 
                 Console.ResetColor();
             }
             else
             {
-                Console.Write($"{(char)160}{foptions[i]}{(char)160}");
+                Console.Write($"{ (char)160 }{ optionsState[i] }{ (char)160 }");
             }
         }
     }

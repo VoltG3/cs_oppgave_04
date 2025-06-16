@@ -20,6 +20,7 @@ class Program
         while (!Globals.exitProgram)
         {
             Globals.originatorActive = false;
+            Globals.yearActive = false;
             
             // --------------------
             //  Chapter Originator
@@ -27,7 +28,6 @@ class Program
 
             var selectedOriginator = MenuService.ShowSelectionMenu(
                 Globals.uniqueOriginators, 
-                "Select a camera manufacturer:", 
                 ref Globals.selectedOriginatorIndex);
                 
                 Console.WriteLine("\n");
@@ -39,17 +39,24 @@ class Program
             // --------------
             
             Globals.SetUniqueYears(filteredList);
+            var selectedUniqueYear = MenuService.ShowSelectionMenu(
+                Globals.uniqueYears, 
+                ref Globals.selectedYearIndex);
             
-            var selectedUniqueYear = MenuService.ShowSelectionMenu(Globals.uniqueYears, "Select production year:", ref Globals.selectedYearIndex);
-            
-            Console.WriteLine("\n");
-            var filteredProducts = controller.GetByYear(selectedOriginator, selectedUniqueYear);
+                Console.WriteLine("\n");
+                var filteredProducts = controller.GetByYear(selectedOriginator, selectedUniqueYear);
             Globals.yearActive = true;
             
-            // Table
+            // -------------
+            //  Print Table
+            // -------------
+            
             Print.ProductTable(filteredProducts);
             
-            // Repeat
+            // --------
+            //  Repeat
+            // --------
+            
             Console.WriteLine("\n");
             Console.WriteLine("Press any key to continue..."); Console.ReadKey(true);
             Globals.originatorMenuExitRequest = false;
