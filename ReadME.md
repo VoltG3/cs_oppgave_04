@@ -1,8 +1,11 @@
-## cs_oppgave_03
+## cs_oppgave_04
 ___
 
 Step 1: Data is loaded from a .csv file. A list of unique manufacturers is extracted from the Field column, and this list is used to generate the selection menu.
-<img src="https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_01.png" alt="screenshot_01.png" width="100%">
+
+<a href="https://raw.githubusercontent.com/VoltG3/cs_oppgave_04/master/screenshot_02.png" target="_blank">
+    <img src="https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_02.png" alt="screenshot_02.png" width="100%">
+</a>
 
 Step 2: All production years available for the selected manufacturer are retrieved and mapped to build the year-selection menu.
 <img src="https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_02.png" alt="screenshot_02.png" width="100%">
