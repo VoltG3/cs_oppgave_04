@@ -1,16 +1,16 @@
 ## cs_oppgave_03
 ___
 
-Step 1: Data is loaded from a .csv file. A list of unique manufacturers (camera makers) is extracted from the field column. This list is then used to generate a selection menu.
+Step 1: Data is loaded from a .csv file. A list of unique manufacturers is extracted from the Field column, and this list is used to generate the selection menu.
 <img src="https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_01.png" alt="screenshot_01.png" width="100%">
 
-Step 2: All production years available for the selected manufacturer are retrieved and mapped to build the year selection menu.
+Step 2: All production years available for the selected manufacturer are retrieved and mapped to build the year-selection menu.
 <img src="https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_02.png" alt="screenshot_02.png" width="100%">
 
-Step 3: Items for the selected manufacturer and year are then sorted by price, either in ascending or descending order.
+Step 3: The items for the selected manufacturer and year are sorted by price, in ascending or descending order.
 <img src="https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_03.png" alt="screenshot_03.png" width="100%">
 
-Step 4: The program continues looping until the Q key is pressed.
+Step 4: The program loops until the Q key is pressed.
 <img src="https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_04.png" alt="screenshot_04.png" width="100%">
 
 #### Example 1
@@ -22,11 +22,9 @@ Step 4: The program continues looping until the Q key is pressed.
 #### Example 3
 <img src="https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_07.png" alt="screenshot_07.png" width="100%">
 
-### Cheat Sheet & Remainder
-Initialize the project
-<img src="https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_00.png" alt="screenshot_00.png" width="50%">
+#### Cheat Sheet & Remainder
 
-Add `.gitignore` to the project
+Initialize the project without a Git repository and then add `.gitignore` to the project
 ```
 bin/
 obj/
