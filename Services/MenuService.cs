@@ -6,19 +6,19 @@ public static class MenuService
 {
     public static string ShowSelectionMenu(string[] options, ref int selectedIndex)
     {
-        while (!Globals.originatorMenuExitRequest)
+        while (!MenuState.ExitProgramState())
         {
             Console.Clear();
-            if (Globals.originatorActive)
+            if (MenuState.OriginatorMenuActiveState()) // Globals.originatorActive
             {
                 var targetIndex = Globals.selectedOriginatorIndex;
-                ShowFakeMenu(Globals.uniqueOriginators, targetIndex);
+                ShowFakeMenu(MenuState.GetUniqueOriginators(), targetIndex); //Globals.uniqueOriginators
             }
 
-            if (Globals.yearActive)
+            if (MenuState.YearMenuActiveState()) // Globals.yearActive
             {
                 var targetIndex = Globals.selectedYearIndex;
-                ShowFakeMenu(Globals.uniqueYears, targetIndex);
+                ShowFakeMenu(MenuState.GetUniqueYears(), targetIndex); //Globals.uniqueYears
             }
             
             Console.WriteLine();
@@ -54,6 +54,7 @@ public static class MenuService
                     return options[selectedIndex];
                 
                 case ConsoleKey.Q:
+                    MenuState.SetExitProgramState(true);
                     return null;
             }
         }

@@ -15,44 +15,53 @@ class Program
         var controller = new ProductController(service);
         
         var allProducts = controller.GetAllProducts();
-        Globals.SetUniqueOriginators(allProducts);
+        //Globals.SetUniqueOriginators(allProducts);
+        MenuState.SetUniqueOriginators(allProducts);
         
-        while (!Globals.exitProgram)
+        while (!MenuState.ExitProgramState())
         {
-            Globals.originatorActive = false;
-            Globals.yearActive = false;
+            //Globals.originatorActive = false;
+            MenuState.SetOriginatorMenuActiveState(false);
+            //Globals.yearActive = false;
+            MenuState.SetYearMenuActiveState(false);
             
             // --------------------
             //  Chapter Originator
             // --------------------
 
             var selectedOriginator = MenuService.ShowSelectionMenu(
-                Globals.uniqueOriginators, 
+                //Globals.uniqueOriginators, 
+                MenuState.GetUniqueOriginators(),
                 ref Globals.selectedOriginatorIndex);
                 
                 Console.WriteLine("\n");
                 var filteredList = controller.GetByOriginator(selectedOriginator);
-            Globals.originatorActive = true;
+            MenuState.SetOriginatorMenuActiveState(true);
+            //Globals.originatorActive = true;
             
             // --------------
             //  Chapter Year
             // --------------
             
-            Globals.SetUniqueYears(filteredList);
+            //Globals.SetUniqueYears(filteredList);
+            MenuState.SetUniqueYears(filteredList);
             var selectedUniqueYear = MenuService.ShowSelectionMenu(
-                Globals.uniqueYears, 
+                //Globals.uniqueYears, 
+                MenuState.GetUniqueYears(),
                 ref Globals.selectedYearIndex);
             
                 Console.WriteLine("\n");
                 var filteredProducts = controller.GetByYear(selectedOriginator, selectedUniqueYear);
-            Globals.yearActive = true;
+            //Globals.yearActive = true;
+            MenuState.SetYearMenuActiveState(true);
             
             // ---------------
             //  Chapter Price
             // ---------------
 
             var selectedPrice = MenuService.ShowSelectionMenu(
-                Globals.uniquePrice, 
+                //Globals.uniquePrice, 
+                MenuState.UniquePrice,
                 ref Globals.selectedPriceIndex);;
             
                 Console.WriteLine("\n");
@@ -60,23 +69,30 @@ class Program
                 {
                     case "Low to High": filteredProducts = controller.GetByPriceAscending(selectedOriginator, selectedUniqueYear); break;
                     case "High to Low": filteredProducts = controller.GetByPriceDecending(selectedOriginator, selectedUniqueYear); break;
-                    default: filteredProducts = filteredProducts; break;
                 }
                 
-            
-            // -------------
-            //  Print Table
-            // -------------
-            
+            // Print Table
             Print.ProductTable(filteredProducts);
             
-            // --------
-            //  Repeat
-            // --------
-            
             Console.WriteLine("\n");
-            Console.WriteLine("Press any key to continue..."); Console.ReadKey(true);
-            Globals.originatorMenuExitRequest = false;
+            Console.WriteLine("Press 'space' to continue or 'q' to exit.");
+            
+            var keyInfo = Console.ReadKey(true);
+            
+            // Exit
+            if (keyInfo.Key == ConsoleKey.Q)
+            {
+                //Globals.originatorMenuExitRequest = true;
+                MenuState.SetExitProgramState(true);
+                break;
+            }
+            
+            // Repeat
+            if (keyInfo.Key == ConsoleKey.Spacebar)
+            {
+                MenuState.SetExitProgramState(false);
+                //Globals.originatorMenuExitRequest = false;
+            }
         }
     }
 }
