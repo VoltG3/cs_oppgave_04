@@ -2,25 +2,25 @@
 ___
 
 Step 1: Data is loaded from a .csv file. A list of unique manufacturers is extracted from the Field column, and this list is used to generate the selection menu.
-![img](https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_02.png)
+![img](https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_01.png)
 
 Step 2: All production years available for the selected manufacturer are retrieved and mapped to build the year-selection menu.
-<img src="https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_02.png" alt="screenshot_02.png" width="100%">
+![img](https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_02.png)
 
 Step 3: The items for the selected manufacturer and year are sorted by price, in ascending or descending order.
-<img src="https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_03.png" alt="screenshot_03.png" width="100%">
+![img](https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_03.png)
 
 Step 4: The program loops until the Q key is pressed.
-<img src="https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_04.png" alt="screenshot_04.png" width="100%">
+![img](https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_04.png)
 
 #### Example 1
-<img src="https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_05.png" alt="screenshot_05.png" width="100%">
+![img](https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_05.png)
 
 #### Example 2
-<img src="https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_06.png" alt="screenshot_06.png" width="100%">
+![img](https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_06.png)
 
 #### Example 3
-<img src="https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_07.png" alt="screenshot_07.png" width="100%">
+![img](https://github.com/VoltG3/cs_oppgave_04/blob/master/screenshot_07.png)
 
 #### Cheat Sheet & Remainder
 
