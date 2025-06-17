@@ -18,7 +18,7 @@ public class ProductController
     public List<ProductModel> GetByOriginator(string targetOriginator)
     {
         var products = _service.GetAllProducts();
-        var filters = new Filters();
+        var filters = new ProductFilters();
         var filteredProducts = filters.GetProductByOriginator(products, targetOriginator);
         return filteredProducts;
     }
@@ -26,7 +26,7 @@ public class ProductController
     public List<ProductModel> GetByYear(string targetOriginator, string targetYear)
     {
         var products = _service.GetAllProducts();
-        var filters = new Filters();
+        var filters = new ProductFilters();
         var filteredProducts = filters.GetProductByYear(products, targetOriginator, targetYear);
         return filteredProducts;
     }
@@ -34,7 +34,7 @@ public class ProductController
     public List<ProductModel> GetByPriceAscending(string targetOriginator, string targetYear)
     {
         var products = _service.GetAllProducts();
-        var filters = new Filters();
+        var filters = new ProductFilters();
         var filteredProducts = filters.GetProductByPriceAscending(products, targetOriginator, targetYear);
         return filteredProducts;
     }
@@ -42,7 +42,7 @@ public class ProductController
     public List<ProductModel> GetByPriceDecending(string targetOriginator, string targetYear)
     {
         var products = _service.GetAllProducts();
-        var filters = new Filters();
+        var filters = new ProductFilters();
         var filteredProducts = filters.GetProductByPriceDescending(products, targetOriginator, targetYear);
         return filteredProducts;
     }

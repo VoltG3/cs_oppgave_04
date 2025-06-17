@@ -4,6 +4,12 @@ namespace cs_oppgave_04.Helpers;
 
 public class MenuState
 {
+    public static int selectedOriginatorIndex = 0;
+    public static int selectedYearIndex = 0;
+    public static int selectedPriceIndex = 0;
+    
+ 
+    
     public static bool ExitProgram { get; set; }
     public static bool ExitProgramState() => ExitProgram;
     public static void SetExitProgramState(bool value) => ExitProgram = value;

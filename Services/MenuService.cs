@@ -4,25 +4,34 @@ namespace cs_oppgave_04;
 
 public static class MenuService
 {
-    public static string ShowSelectionMenu(string[] options, ref int selectedIndex)
+    public static string ShowSelectionMenu(string[] options, ref int selectedIndex, string menuLabel)
     {
         while (!MenuState.ExitProgramState())
         {
             Console.Clear();
-            if (MenuState.OriginatorMenuActiveState()) // Globals.originatorActive
+            if (MenuState.OriginatorMenuActiveState())
             {
-                var targetIndex = Globals.selectedOriginatorIndex;
-                ShowFakeMenu(MenuState.GetUniqueOriginators(), targetIndex); //Globals.uniqueOriginators
+                var targetIndex = MenuState.selectedOriginatorIndex;
+                ShowFakeMenu(
+                    MenuState.GetUniqueOriginators(), 
+                    targetIndex, 
+                    Dictionary.GetMenuLabel("originator"));
             }
 
-            if (MenuState.YearMenuActiveState()) // Globals.yearActive
+            if (MenuState.YearMenuActiveState())
             {
-                var targetIndex = Globals.selectedYearIndex;
-                ShowFakeMenu(MenuState.GetUniqueYears(), targetIndex); //Globals.uniqueYears
+                var targetIndex = MenuState.selectedYearIndex;
+                ShowFakeMenu(
+                    MenuState.GetUniqueYears(), 
+                    targetIndex, 
+                    Dictionary.GetMenuLabel("year"));
             }
-            
             Console.WriteLine();
 
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Write(menuLabel);
+            Console.ResetColor();
             for (int i = 0; i < options.Length; i++)
             {
                 if (i == selectedIndex)
@@ -34,7 +43,10 @@ public static class MenuService
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.BackgroundColor = ConsoleColor.Blue; 
                     Console.Write($"{ (char)160 }{ options[i] }{ (char)160 }");
+                    Console.ResetColor();
                 }
             }
 
@@ -52,20 +64,20 @@ public static class MenuService
                 
                 case ConsoleKey.Enter:
                     return options[selectedIndex];
-                
-                case ConsoleKey.Q:
-                    MenuState.SetExitProgramState(true);
-                    return null;
             }
         }
 
         return null;
     }
     
-    public static void ShowFakeMenu(string[] optionsState, int selectedIndexState)
+    public static void ShowFakeMenu(string[] optionsState, int selectedIndexState, string menuLabel)
     {
         Console.WriteLine();
 
+        Console.BackgroundColor = ConsoleColor.DarkBlue;
+        Console.ForegroundColor = ConsoleColor.Black;
+        Console.Write(menuLabel);
+        Console.ResetColor();
         for (int i = 0; i < optionsState.Length; i++)
         { 
             if (i == selectedIndexState)
@@ -77,7 +89,10 @@ public static class MenuService
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.Blue;
                 Console.Write($"{ (char)160 }{ optionsState[i] }{ (char)160 }");
+                Console.ResetColor();
             }
         }
     }

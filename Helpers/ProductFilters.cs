@@ -2,7 +2,7 @@ using Models;
 
 namespace cs_oppgave_04;
 
-public class Filters
+public class ProductFilters
 {
     public List<ProductModel> GetProductByOriginator(List<ProductModel> products, string originator)
     {
@@ -23,7 +23,6 @@ public class Filters
             .ToList();
     }
     
-    //
     public List<ProductModel> GetProductByPriceAscending(List<ProductModel> products, string originator, string year)
     {
         return products
